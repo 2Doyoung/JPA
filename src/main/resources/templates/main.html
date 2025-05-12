@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <form id="user-form">
+        이름: <input type="text" id="name" name="name" required /><br />
+        이메일: <input type="email" id="email" name="email" required /><br />
+        <button type="submit">저장</button>
+    </form>
+    <script>
+        document.getElementById("user-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+
+            axios.post('/join', formData).then((res) => {
+
+            }).catch((error) => {
+
+            });
+        })
+    </script>
+</body>
+</html>
